@@ -7,25 +7,16 @@
 
 <title>Football Champions 2026</title>
 
-<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-
 <style>
-:root {
-    --green: #19d76b;
-    --gold: #e5bd65;
-    --bg: #101820;
-    --panel: #202e39;
-}
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: radial-gradient(circle at top, #1c382e, #101820 48%);
-    color: white;
     font-family: Arial, sans-serif;
+    background: #101820;
+    color: white;
     text-align: center;
 }
 
@@ -41,41 +32,51 @@ header h1 {
 }
 
 header p {
+    margin-bottom: 0;
     color: #c9ffdc;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 600px;
     margin: auto;
     padding: 15px;
 }
 
 .card {
-    background: var(--panel);
+    background: #202e39;
     padding: 20px;
     margin: 15px 0;
     border-radius: 15px;
     box-shadow: 0 4px 15px #0005;
 }
 
-button, select, input {
+h2, h3 {
+    margin-top: 5px;
+}
+
+select, button {
     width: 100%;
     padding: 13px;
     margin: 7px 0;
     border: none;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 16px;
+}
+
+select {
+    background: white;
+    color: black;
 }
 
 button {
-    background: var(--green);
+    background: #19d76b;
     color: #071b10;
     font-weight: bold;
     cursor: pointer;
 }
 
 button:active {
-    transform: scale(.98);
+    transform: scale(0.98);
 }
 
 button.secondary {
@@ -83,208 +84,99 @@ button.secondary {
     color: white;
 }
 
-button.gold {
-    background: linear-gradient(120deg, #f7d77e, #b9822d);
-    color: #211707;
-}
-
-select, input {
-    background: white;
-    color: black;
-}
-
-nav {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
-    margin: 12px 0;
-}
-
-nav button {
-    background: #293b47;
-    color: white;
-    padding: 12px 4px;
-}
-
-nav button.active {
-    outline: 2px solid white;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.small {
-    font-size: 13px;
-    color: #c8d4dc;
-    line-height: 1.5;
-}
-
-.coins {
-    color: #ffdf6d;
-    font-weight: bold;
-    padding: 12px;
-    background: #17242d;
-    border-radius: 10px;
-    margin-bottom: 12px;
-}
-
-/* PLAYER CARDS */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-    gap: 12px;
-}
-
-.player-card {
-    position: relative;
-    min-height: 235px;
-    padding: 10px;
-    text-align: center;
-    border: 3px solid #b88b43;
-    border-radius: 12px;
-    background: linear-gradient(155deg, #4b3a20, #16191b 58%);
-    box-shadow: inset 0 0 0 2px #e4c77a;
-    overflow: hidden;
-}
-
-.player-card.legend {
-    background: linear-gradient(155deg, #7c5b21, #171719 60%);
-    border-color: #f3d47e;
-}
-
-.rating {
-    position: absolute;
-    left: 10px;
-    top: 8px;
-    font-size: 29px;
-    font-weight: 900;
-    color: #ffe51c;
-}
-
-.position {
-    position: absolute;
-    left: 13px;
-    top: 42px;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.flag {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 23px;
-}
-
-.portrait {
-    font-size: 65px;
-    margin: 34px 0 4px;
-}
-
-.player-card h3 {
-    margin: 2px 0 4px;
-    font-size: 16px;
-}
-
-.nation {
-    font-size: 12px;
-    color: #e8d7ad;
-}
-
-.stars {
-    color: #ffe51c;
-    letter-spacing: 3px;
-    margin: 9px 0;
-}
-
-.badge {
-    font-size: 10px;
-    color: #ffe08a;
-    letter-spacing: 1px;
-}
-
-.player-card button {
-    font-size: 11px;
-    padding: 8px 3px;
-}
-
-/* SQUAD */
-
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.slot {
-    background: #14232c;
-    border: 1px dashed #8ba0ad;
-    border-radius: 10px;
-    padding: 10px;
-    min-height: 90px;
-}
-
-.slot strong {
-    display: block;
-    color: #ffe07b;
-    margin-bottom: 6px;
-}
-
-/* MATCH */
-
 .pitch {
     background: repeating-linear-gradient(
         0deg,
         #168447,
-        #168447 42px,
-        #11763d 42px,
-        #11763d 84px
+        #168447 45px,
+        #11763d 45px,
+        #11763d 90px
     );
+
     border: 3px solid white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 18px 10px;
+    position: relative;
+}
+
+.pitch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px solid #ffffff90;
+}
+
+.pitch-label {
+    position: relative;
+    z-index: 1;
+}
+
+.ball {
+    font-size: 48px;
+    margin: 15px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-6px);
+    }
 }
 
 .score {
-    font-size: 34px;
+    font-size: 29px;
     font-weight: bold;
-    margin: 15px;
+    margin: 15px 0;
+    overflow-wrap: anywhere;
 }
 
-.move-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+.team-name {
+    font-size: 13px;
+    color: #d7e5ee;
 }
 
-#message {
-    min-height: 45px;
-    color: #8dffb4;
-    line-height: 1.5;
-    font-weight: bold;
+.small {
+    color: #c8d4dc;
+    font-size: 13px;
 }
 
 .stats {
     display: flex;
-    gap: 8px;
     justify-content: space-around;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .stat {
     background: #101820;
-    border-radius: 9px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 12px;
     flex: 1;
-    min-width: 85px;
+    min-width: 80px;
 }
 
 .stat strong {
     display: block;
-    font-size: 22px;
+    font-size: 23px;
     color: #40ff85;
+    margin-bottom: 5px;
+}
+
+#message {
+    min-height: 55px;
+    line-height: 1.5;
+    color: #69ff9f;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 footer {
@@ -293,14 +185,9 @@ footer {
     font-size: 12px;
 }
 
-@media(max-width:480px) {
-    nav button {
-        font-size: 12px;
-    }
-
-    .row {
-        grid-template-columns: 1fr;
-    }
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 </style>
 </head>
@@ -309,264 +196,160 @@ footer {
 
 <header>
     <h1>⚽ FOOTBALL CHAMPIONS</h1>
-    <p>2026 • ULTIMATE TEAM</p>
+    <p>2026 • Build Your Legacy</p>
 </header>
 
 <div class="container">
 
-    <div class="coins">
-        🪙 Coins: <span id="coinCount">1500</span>
-    </div>
+    <!-- MAIN MENU -->
 
-    <!-- NAVIGATION -->
+    <div class="card" id="setup">
 
-    <nav>
-        <button id="navCollection" onclick="showTab('collection')">
-            🃏 CARDS
-        </button>
+        <h2>🏆 Choose Your Club</h2>
 
-        <button id="navSummon" onclick="showTab('summon')">
-            ✨ SUMMON
-        </button>
+        <select id="club">
+            <option>Real Madrid</option>
+            <option>FC Barcelona</option>
+            <option>Manchester United</option>
+            <option>Paris Saint-Germain</option>
+            <option>Bengaluru FC</option>
+        </select>
 
-        <button id="navSquad" onclick="showTab('squad')">
-            👥 SQUAD
-        </button>
+        <h3>⭐ Choose Your Star Player</h3>
 
-        <button id="navPlay" onclick="showTab('play')">
-            🏟️ PLAY
-        </button>
-    </nav>
+        <select id="player">
+            <option value="85">Lionel Messi — 85</option>
+            <option value="90">Cristiano Ronaldo — 90</option>
+            <option value="82">Neymar Jr. — 82</option>
+            <option value="88">Kylian Mbappe — 88</option>
+            <option value="92">Erling Haaland — 92</option>
+            <option value="80">Sunil Chhetri — 80</option>
+        </select>
 
-    <!-- PLAYER COLLECTION -->
+        <h3>🆚 Choose Your Opponent</h3>
 
-    <div class="card" id="collection">
+        <select id="opponent">
+            <option>Arsenal</option>
+            <option>Bayern Munich</option>
+            <option>Liverpool</option>
+            <option>Inter Milan</option>
+            <option>Atletico Madrid</option>
+        </select>
 
-        <h2>🃏 PLAYER COLLECTION</h2>
-
-        <p class="small">
-            Collect legendary football players and build your dream team.
-        </p>
-
-        <p id="collectionCount"></p>
-
-        <div id="collectionGrid" class="grid"></div>
-
-    </div>
-
-    <!-- SUMMON MENU -->
-
-    <div class="card hidden" id="summon">
-
-        <h2>✨ PLAYER SUMMON</h2>
-
-        <p>
-            Open a player pack and discover a new football superstar!
-        </p>
-
-        <div class="player-card legend">
-
-            <div class="rating">?</div>
-
-            <div class="position">CF</div>
-
-            <div class="flag">🌟</div>
-
-            <div class="portrait">🎴</div>
-
-            <h3>LEGEND PACK</h3>
-
-            <div class="nation">RANDOM PLAYER</div>
-
-            <div class="stars">★★★★★</div>
-
-            <div class="badge">SPECIAL PLAYER CARD</div>
-
-        </div>
-
-        <button class="gold" onclick="summon()">
-            ✨ SUMMON PLAYER — 500 COINS
-        </button>
+        <button onclick="startGame()">⚽ START MATCH</button>
 
         <p class="small">
-            Legendary: 10%<br>
-            Elite: 30%<br>
-            Rare: 60%
-        </p>
-
-        <div id="summonResult"></div>
-
-    </div>
-
-    <!-- SQUAD MENU -->
-
-    <div class="card hidden" id="squad">
-
-        <h2>👥 MY TEAM</h2>
-
-        <h3>Club Name</h3>
-
-        <input
-            id="clubName"
-            value="Dream FC"
-            maxlength="22"
-            onchange="saveClub()"
-        >
-
-        <h3>Choose Your Coach</h3>
-
-        <select id="coach" onchange="saveCoach()"></select>
-
-        <div class="stat">
-            <strong id="teamRating">0</strong>
-            Team Rating
-        </div>
-
-        <p class="small" id="coachBoost"></p>
-
-        <h3>Starting Team</h3>
-
-        <div id="squadSlots" class="grid"></div>
-
-        <p class="small">
-            Add players from your collection.
-            Maximum 5 players in this demo squad.
+            Play matches, score goals, and earn rewards!
         </p>
 
     </div>
 
-    <!-- PLAY MENU -->
+    <!-- MATCH SCREEN -->
 
-    <div class="card hidden" id="play">
+    <div class="card hidden" id="match">
 
-        <h2>🏆 MATCH CENTRE</h2>
+        <h2>🏟️ MATCH DAY</h2>
 
-        <div id="modePicker">
+        <p id="matchTitle"></p>
 
-            <div class="row">
+        <div class="pitch">
 
-                <div class="card">
+            <div class="pitch-label">FOOTBALL ARENA</div>
 
-                    <h3>🤖 PLAY VS AI</h3>
+            <div class="ball">⚽</div>
 
-                    <label>Choose Difficulty</label>
-
-                    <select id="difficulty">
-
-                        <option value="easy">Easy</option>
-
-                        <option value="normal">Normal</option>
-
-                        <option value="hard">Hard</option>
-
-                    </select>
-
-                    <button onclick="startAI()">
-                        START AI MATCH
-                    </button>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>🌐 MULTIPLAYER</h3>
-
-                    <p class="small">
-                        Create a room and share the code with your friend.
-                    </p>
-
-                    <button onclick="hostOnline()">
-                        CREATE ROOM
-                    </button>
-
-                    <input
-                        id="roomCode"
-                        placeholder="Enter room code"
-                    >
-
-                    <button class="secondary" onclick="joinOnline()">
-                        JOIN ROOM
-                    </button>
-
-                    <p id="networkStatus" class="small">
-                        Not connected.
-                    </p>
-
-                </div>
-
+            <div class="pitch-label" id="minute">
+                Minute 1
             </div>
 
         </div>
 
-        <!-- MATCH SCREEN -->
+        <div class="score">
 
-        <div id="matchArea" class="hidden">
+            <div class="team-name" id="yourTeam"></div>
 
-            <h2 id="matchHeading">MATCH DAY</h2>
+            <span id="yourScore">0</span>
+            -
+            <span id="enemyScore">0</span>
 
-            <div class="pitch">
-
-                <h3>⚽ FOOTBALL ARENA</h3>
-
-                <div class="score">
-
-                    <span id="myScore">0</span>
-
-                    -
-
-                    <span id="opScore">0</span>
-
-                </div>
-
-                <p id="minute">Round 1 / 6</p>
-
-            </div>
-
-            <p id="matchTeams" class="small"></p>
-
-            <p id="message">
-                Kick-off!
-            </p>
-
-            <h3>Choose Your Move</h3>
-
-            <div class="move-grid">
-
-                <button onclick="chooseMove('shoot')">
-                    🥅 SHOOT
-                </button>
-
-                <button onclick="chooseMove('dribble')">
-                    🔥 DRIBBLE
-                </button>
-
-                <button onclick="chooseMove('pass')">
-                    🤝 PASS
-                </button>
-
-            </div>
-
-            <p id="turnInfo" class="small">
-                Six rounds per match.
-            </p>
+            <div class="team-name" id="enemyTeam"></div>
 
         </div>
 
-        <!-- RESULT SCREEN -->
+        <div class="stats">
 
-        <div id="matchResult" class="hidden">
+            <div class="stat">
+                <strong id="roundStat">0/6</strong>
+                <span>Rounds</span>
+            </div>
 
-            <h2 id="resultTitle">FULL TIME</h2>
-
-            <h2 id="resultScore"></h2>
-
-            <p id="resultText"></p>
-
-            <button onclick="backToModes()">
-                BACK TO MATCH CENTRE
-            </button>
+            <div class="stat">
+                <strong id="goalStat">0</strong>
+                <span>Your Goals</span>
+            </div>
 
         </div>
+
+        <p id="message">
+            The referee blows the whistle!
+        </p>
+
+        <h3>Choose Your Move</h3>
+
+        <button onclick="play('shoot')">
+            🥅 SHOOT
+        </button>
+
+        <button onclick="play('dribble')">
+            🔥 DRIBBLE
+        </button>
+
+        <button onclick="play('pass')">
+            🤝 PASS
+        </button>
+
+        <p class="small">
+            Six attacking rounds per match.
+        </p>
+
+    </div>
+
+    <!-- RESULT SCREEN -->
+
+    <div class="card hidden" id="result">
+
+        <h2 id="resultTitle">FULL TIME</h2>
+
+        <div class="score" id="finalScore"></div>
+
+        <p id="reward"></p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong id="totalWins">0</strong>
+                <span>Wins</span>
+            </div>
+
+            <div class="stat">
+                <strong id="totalLosses">0</strong>
+                <span>Losses</span>
+            </div>
+
+            <div class="stat">
+                <strong id="totalCoins">0</strong>
+                <span>Coins</span>
+            </div>
+
+        </div>
+
+        <button onclick="startGame()">
+            🔄 PLAY AGAIN
+        </button>
+
+        <button class="secondary" onclick="showMenu()">
+            🏠 MAIN MENU
+        </button>
 
     </div>
 
@@ -574,593 +357,308 @@ footer {
 
 <footer>
     FOOTBALL CHAMPIONS 2026<br>
-    Independent fan-made football game.
+    An independent fan-made football game.
 </footer>
 
 <script>
 
-// ===================================
-// PLAYER DATABASE
-// ===================================
+// ============================
+// GAME DATA
+// ============================
 
-const players = [
+let club = "";
+let player = "";
+let opponent = "";
 
-    {
-        id: "pele",
-        name: "Pelé",
-        rating: 102,
-        pos: "CF",
-        flag: "🇧🇷",
-        nation: "Brazil",
-        emoji: "👑",
-        rarity: "LEGEND"
-    },
+let shooting = 0;
 
-    {
-        id: "messi",
-        name: "Lionel Messi",
-        rating: 96,
-        pos: "RW",
-        flag: "🇦🇷",
-        nation: "Argentina",
-        emoji: "🐐",
-        rarity: "ELITE"
-    },
+let yourGoals = 0;
+let enemyGoals = 0;
 
-    {
-        id: "ronaldo",
-        name: "Cristiano Ronaldo",
-        rating: 96,
-        pos: "ST",
-        flag: "🇵🇹",
-        nation: "Portugal",
-        emoji: "⭐",
-        rarity: "ELITE"
-    },
-
-    {
-        id: "mbappe",
-        name: "Kylian Mbappé",
-        rating: 93,
-        pos: "ST",
-        flag: "🇫🇷",
-        nation: "France",
-        emoji: "⚡",
-        rarity: "ELITE"
-    },
-
-    {
-        id: "haaland",
-        name: "Erling Haaland",
-        rating: 92,
-        pos: "ST",
-        flag: "🇳🇴",
-        nation: "Norway",
-        emoji: "💥",
-        rarity: "ELITE"
-    },
-
-    {
-        id: "neymar",
-        name: "Neymar Jr.",
-        rating: 89,
-        pos: "LW",
-        flag: "🇧🇷",
-        nation: "Brazil",
-        emoji: "🎩",
-        rarity: "RARE"
-    },
-
-    {
-        id: "chhetri",
-        name: "Sunil Chhetri",
-        rating: 84,
-        pos: "ST",
-        flag: "🇮🇳",
-        nation: "India",
-        emoji: "🔥",
-        rarity: "RARE"
-    },
-
-    {
-        id: "modric",
-        name: "Luka Modrić",
-        rating: 88,
-        pos: "CM",
-        flag: "🇭🇷",
-        nation: "Croatia",
-        emoji: "🎯",
-        rarity: "RARE"
-    },
-
-    {
-        id: "salah",
-        name: "Mohamed Salah",
-        rating: 90,
-        pos: "RW",
-        flag: "🇪🇬",
-        nation: "Egypt",
-        emoji: "👟",
-        rarity: "ELITE"
-    },
-
-    {
-        id: "vini",
-        name: "Vinícius Jr.",
-        rating: 91,
-        pos: "LW",
-        flag: "🇧🇷",
-        nation: "Brazil",
-        emoji: "⚡",
-        rarity: "ELITE"
-    },
-
-    {
-        id: "keeper",
-        name: "David Keeper",
-        rating: 80,
-        pos: "GK",
-        flag: "🏳️",
-        nation: "World",
-        emoji: "🧤",
-        rarity: "RARE"
-    },
-
-    {
-        id: "captain",
-        name: "Alex Captain",
-        rating: 78,
-        pos: "CM",
-        flag: "🏳️",
-        nation: "World",
-        emoji: "🛡️",
-        rarity: "RARE"
-    }
-
-];
-
-
-// ===================================
-// COACH DATABASE
-// ===================================
-
-const coaches = [
-
-    {
-        name: "Carlo Ancelotti",
-        boost: 4,
-        style: "Balanced"
-    },
-
-    {
-        name: "Pep Guardiola",
-        boost: 6,
-        style: "Possession"
-    },
-
-    {
-        name: "Jürgen Klopp",
-        boost: 5,
-        style: "Pressing"
-    },
-
-    {
-        name: "Zinedine Zidane",
-        boost: 5,
-        style: "Counter Attack"
-    }
-
-];
-
-
-// ===================================
-// GAME VARIABLES
-// ===================================
-
-let coins = 1500;
-
-let owned = [
-    "messi",
-    "chhetri",
-    "keeper",
-    "captain"
-];
-
-let squad = [
-    "messi",
-    "chhetri",
-    "keeper"
-];
-
-let coachIndex = 0;
+let round = 0;
+let coins = 0;
 
 let wins = 0;
 let losses = 0;
 let draws = 0;
 
-let game = null;
-
-let peer = null;
-let conn = null;
-
-let onlineRole = "";
-
-let localMove = null;
-let remoteMove = null;
-
-const $ = id => document.getElementById(id);
+let finished = false;
 
 
-// ===================================
-// SAVE GAME
-// ===================================
+// ============================
+// START GAME
+// ============================
 
-function persist() {
+function startGame() {
 
-    localStorage.setItem(
-        "fc-save",
-        JSON.stringify({
+    club = document.getElementById("club").value;
 
-            coins,
-            owned,
-            squad,
-            coachIndex,
+    opponent = document.getElementById("opponent").value;
 
-            club: $("clubName").value || "Dream FC",
+    let selector = document.getElementById("player");
 
-            wins,
-            losses,
-            draws
+    player = selector.options[selector.selectedIndex].text;
 
-        })
-    );
+    shooting = Number(selector.value);
 
-    updateTop();
+    yourGoals = 0;
+    enemyGoals = 0;
+    round = 0;
+    finished = false;
+
+    document.getElementById("setup").classList.add("hidden");
+
+    document.getElementById("result").classList.add("hidden");
+
+    document.getElementById("match").classList.remove("hidden");
+
+    document.getElementById("matchTitle").textContent =
+        club + " VS " + opponent;
+
+    document.getElementById("yourTeam").textContent = club;
+
+    document.getElementById("enemyTeam").textContent = opponent;
+
+    document.getElementById("message").textContent =
+        "Kick-off! " + player + " is ready to play!";
+
+    updateScore();
 
 }
 
 
-// ===================================
-// LOAD GAME
-// ===================================
+// ============================
+// UPDATE SCOREBOARD
+// ============================
 
-function load() {
+function updateScore() {
 
-    try {
+    document.getElementById("yourScore").textContent = yourGoals;
 
-        let saved = JSON.parse(
-            localStorage.getItem("fc-save")
-        );
+    document.getElementById("enemyScore").textContent = enemyGoals;
 
-        if (saved) {
+    document.getElementById("minute").textContent =
+        "Minute " + (round * 15 + 1);
 
-            coins = saved.coins ?? coins;
+    document.getElementById("roundStat").textContent =
+        round + "/6";
 
-            owned = saved.owned || owned;
+    document.getElementById("goalStat").textContent =
+        yourGoals;
 
-            squad = saved.squad || squad;
+}
 
-            coachIndex = saved.coachIndex || 0;
 
-            wins = saved.wins || 0;
+// ============================
+// PLAY MATCH
+// ============================
 
-            losses = saved.losses || 0;
+function play(move) {
 
-            draws = saved.draws || 0;
+    if (finished || round >= 6) {
+        return;
+    }
 
-            $("clubName").value =
-                saved.club || "Dream FC";
+    let message = "";
+
+    // SHOOTING
+
+    if (move === "shoot") {
+
+        let chance = Math.random() * 100;
+
+        if (chance < shooting) {
+
+            yourGoals++;
+
+            message = "⚽ GOOOOAL! " + player + " SCORES!";
+
+        } else {
+
+            message = "🧤 The goalkeeper saves your shot!";
 
         }
 
     }
 
-    catch (error) {
+    // DRIBBLING
 
-        console.log("Save data could not be loaded.");
+    else if (move === "dribble") {
 
-    }
+        if (Math.random() < 0.70) {
 
-}
+            message = "🔥 You beat the defender! ";
 
+            if (Math.random() * 100 < shooting) {
 
-// ===================================
-// UPDATE COINS
-// ===================================
+                yourGoals++;
 
-function updateTop() {
+                message += "GOOOOAL! WHAT A FINISH!";
 
-    $("coinCount").textContent = coins;
+            } else {
 
-}
+                message += "Your final shot misses!";
 
-
-// ===================================
-// NAVIGATION
-// ===================================
-
-function showTab(tab) {
-
-    const tabs = [
-        "collection",
-        "summon",
-        "squad",
-        "play"
-    ];
-
-    tabs.forEach(t => {
-
-        $(t).classList.toggle(
-            "hidden",
-            t !== tab
-        );
-
-        $("nav" + t[0].toUpperCase() + t.slice(1))
-            .classList.toggle("active", t === tab);
-
-    });
-
-    if (tab === "collection") {
-        renderCollection();
-    }
-
-    if (tab === "squad") {
-        renderSquad();
-    }
-
-    if (tab === "play") {
-        backToModes();
-    }
-
-}
-
-
-// ===================================
-// PLAYER CARD DESIGN
-// ===================================
-
-function cardHTML(p, actions = true) {
-
-    return `
-
-        <div class="player-card ${p.rating >= 90 ? "legend" : ""}">
-
-            <div class="rating">${p.rating}</div>
-
-            <div class="position">${p.pos}</div>
-
-            <div class="flag">${p.flag}</div>
-
-            <div class="portrait">${p.emoji}</div>
-
-            <h3>${p.name}</h3>
-
-            <div class="nation">
-                ${p.nation} • ${p.rarity}
-            </div>
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <div class="badge">
-                FC CHAMPIONS
-            </div>
-
-            ${
-                actions
-                ?
-                `<button onclick="addSquad('${p.id}')">
-                    ADD TO TEAM
-                </button>`
-                :
-                ""
             }
 
-        </div>
+        } else {
 
-    `;
+            message = "😱 The defender takes the ball!";
+
+        }
+
+    }
+
+    // PASSING
+
+    else if (move === "pass") {
+
+        if (Math.random() < 0.80) {
+
+            message = "🤝 Brilliant teamwork! ";
+
+            if (Math.random() < 0.60) {
+
+                yourGoals++;
+
+                message += "YOUR TEAMMATE SCORES!";
+
+            } else {
+
+                message += "The goalkeeper saves the shot!";
+
+            }
+
+        } else {
+
+            message = "The opponent intercepts your pass!";
+
+        }
+
+    }
+
+    // COMPUTER ATTACK
+
+    if (Math.random() < 0.30) {
+
+        enemyGoals++;
+
+        message += " | ⚽ " + opponent + " SCORES!";
+
+    } else {
+
+        message += " | 🧤 Your defence holds!";
+
+    }
+
+    round++;
+
+    updateScore();
+
+    document.getElementById("message").textContent = message;
+
+    if (round === 6) {
+
+        finishGame();
+
+    }
 
 }
 
 
-// ===================================
-// COLLECTION MENU
-// ===================================
+// ============================
+// FINISH MATCH
+// ============================
 
-function renderCollection() {
+function finishGame() {
 
-    $("collectionGrid").innerHTML = owned
+    finished = true;
 
-        .map(id => players.find(p => p.id === id))
+    document.getElementById("match").classList.add("hidden");
 
-        .filter(Boolean)
+    document.getElementById("result").classList.remove("hidden");
 
-        .map(p => cardHTML(p))
+    document.getElementById("finalScore").textContent =
+        club + " " + yourGoals +
+        " - " + enemyGoals + " " + opponent;
 
-        .join("");
+    if (yourGoals > enemyGoals) {
 
-    $("collectionCount").textContent =
-        owned.length + " PLAYER CARDS";
+        coins += 500;
 
-}
+        wins++;
 
+        document.getElementById("resultTitle").textContent =
+            "🏆 VICTORY!";
 
-// ===================================
-// SUMMON PLAYER
-// ===================================
-
-function summon() {
-
-    if (coins < 500) {
-
-        $("summonResult").textContent =
-            "Not enough coins! Play matches to earn coins.";
-
-        return;
+        document.getElementById("reward").textContent =
+            "Champions! You earned 500 coins!";
 
     }
 
-    coins -= 500;
+    else if (yourGoals < enemyGoals) {
 
-    let random = Math.random();
+        coins += 100;
 
-    let pool;
+        losses++;
 
-    if (random < 0.10) {
+        document.getElementById("resultTitle").textContent =
+            "😢 DEFEAT!";
 
-        pool = players.filter(
-            p => p.rating >= 90
-        );
-
-    }
-
-    else if (random < 0.40) {
-
-        pool = players.filter(
-            p => p.rating >= 85 && p.rating < 90
-        );
+        document.getElementById("reward").textContent =
+            "Keep training! You earned 100 coins.";
 
     }
 
     else {
 
-        pool = players.filter(
-            p => p.rating < 85
-        );
+        coins += 250;
+
+        draws++;
+
+        document.getElementById("resultTitle").textContent =
+            "🤝 DRAW!";
+
+        document.getElementById("reward").textContent =
+            "A hard-fought match! You earned 250 coins.";
 
     }
 
-    let player = pool[
-        Math.floor(Math.random() * pool.length)
-    ];
-
-    if (owned.includes(player.id)) {
-
-        coins += 150;
-
-        $("summonResult").innerHTML =
-            cardHTML(player, false) +
-            "<p>Duplicate card! 150 coins returned.</p>";
-
-    }
-
-    else {
-
-        owned.push(player.id);
-
-        $("summonResult").innerHTML =
-            cardHTML(player, false) +
-            "<p>🎉 NEW PLAYER UNLOCKED!</p>";
-
-    }
-
-    persist();
-
-    renderCollection();
+    updateCareer();
 
 }
 
 
-// ===================================
-// ADD PLAYER TO SQUAD
-// ===================================
+// ============================
+// CAREER STATISTICS
+// ============================
 
-function addSquad(id) {
+function updateCareer() {
 
-    if (squad.includes(id)) {
+    document.getElementById("totalWins").textContent = wins;
 
-        alert("Player already in your squad!");
+    document.getElementById("totalLosses").textContent = losses;
 
-        return;
-
-    }
-
-    if (squad.length >= 5) {
-
-        alert("Your demo squad is full!");
-
-        return;
-
-    }
-
-    squad.push(id);
-
-    persist();
-
-    renderCollection();
-
-    renderSquad();
+    document.getElementById("totalCoins").textContent = coins;
 
 }
 
 
-// ===================================
-// REMOVE PLAYER
-// ===================================
+// ============================
+// RETURN TO MENU
+// ============================
 
-function removeSquad(id) {
+function showMenu() {
 
-    squad = squad.filter(
-        player => player !== id
-    );
+    document.getElementById("result").classList.add("hidden");
 
-    persist();
+    document.getElementById("match").classList.add("hidden");
 
-    renderSquad();
+    document.getElementById("setup").classList.remove("hidden");
 
 }
 
+</script>
 
-// ===================================
-// RENDER SQUAD
-// ===================================
-
-function renderSquad() {
-
-    $("coach").innerHTML = coaches
-
-        .map((c, i) => `
-
-            <option value="${i}"
-                ${i === coachIndex ? "selected" : ""}>
-
-                ${c.name} (+${c.boost})
-
-            </option>
-
-        `)
-
-        .join("");
-
-    $("squadSlots").innerHTML =
-
-        Array.from({length: 5}, (_, i) => {
-
-            let p = players.find(
-                player => player.id === squad[i]
-            );
-
-            return `
-
-                <div class="slot">
-
-                    <strong>POSITION ${i + 1}</strong>
-
-                    ${
-                        p
-                        ?
-                        `
-                            ${p.emoji} ${p.name}
-
-                            <br>
-
-                            Rating ${p.rating}
-
-                            <button class="secondary"
-                                onclick="removeSquad('${p.id}')">
-
-                                REMOVE
-
-                            </button>
-             
+</body>
+</html>
